@@ -1,0 +1,1372 @@
+[ {
+  "project" : {
+    "name" : "okhttp",
+    "url" : "https://github.com/square/okhttp",
+    "path" : "file:///Users/dontbr/ufpe/repositories/tmp/227822e5-5751-4d92-a1ee-9ba51dc2ff7f/",
+    "tags" : [ "1.3.0", "parent-1.0.0", "parent-1.0.1", "parent-1.0.2", "parent-1.1.0", "parent-1.1.1", "parent-1.2.0", "parent-1.2.1", "parent-1.5.0", "parent-1.5.1", "parent-1.5.2", "parent-1.5.3", "parent-1.5.4", "parent-1.6.0", "parent-2.0.0", "parent-2.0.0-RC1", "parent-2.0.0-RC2", "parent-2.1.0", "parent-2.1.0-RC1", "parent-2.2.0", "parent-2.3.0", "parent-2.4.0", "parent-2.4.0-RC1", "parent-2.5.0", "parent-2.6.0", "parent-2.7.0", "parent-2.7.1", "parent-2.7.2", "parent-2.7.3", "parent-2.7.4", "parent-2.7.5", "parent-3.0.0", "parent-3.0.0-RC1", "parent-3.0.1", "parent-3.1.0", "parent-3.1.1", "parent-3.1.2", "parent-3.10.0", "parent-3.11.0", "parent-3.12.0", "parent-3.12.1", "parent-3.12.2", "parent-3.13.0", "parent-3.13.1", "parent-3.14.0", "parent-3.2.0", "parent-3.3.0", "parent-3.3.1", "parent-3.4.0", "parent-3.4.0-RC1", "parent-3.4.1", "parent-3.4.2", "parent-3.5.0", "parent-3.6.0", "parent-3.7.0", "parent-3.8.0", "parent-3.8.1", "parent-3.9.0", "parent-3.9.1" ],
+    "tagsWithErrors" : [ ],
+    "currentTag" : "parent-1.1.1",
+    "valid" : true,
+    "currentBranch" : null
+  },
+  "smell" : {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "smell" : "LargeClass",
+    "tool" : "SMARTSMELLS",
+    "tag" : "1.3.0",
+    "tagFixed" : "parent-1.0.0",
+    "line" : "31",
+    "column" : "1",
+    "refactoringList" : null
+  },
+  "smellList" : null,
+  "occurrenceList" : null,
+  "refactoringList" : [ {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tprivate nameValueBlockIn : DataInputStream from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tprivate compressedLimit : int from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Method",
+    "refactoringDetail" : "Move Method\tprivate readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to public readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Method",
+    "refactoringDetail" : "Move Method\tprivate readString() : String from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to private readString() : String from class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Parameterize Variable",
+    "refactoringDetail" : "Parameterize Variable\tlength : int to byteCount : int in method public data(outFinished boolean, streamId int, data byte[], offset int, byteCount int) : void in class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage FLAG_FIN : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage FLAG_UNIDIRECTIONAL : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_DATA : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SYN_STREAM : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SYN_REPLY : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_RST_STREAM : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SETTINGS : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_NOOP : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_PING : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_GOAWAY : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_HEADERS : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_WINDOW_UPDATE : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_CREDENTIAL : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage VERSION : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage DICTIONARY : byte[] from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate in : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockIn : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate compressedLimit : int from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate out : DataOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockBuffer : ByteArrayOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockOut : DataOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpackage SpdyReader(in InputStream) from class com.squareup.okhttp.internal.spdy.SpdyReader to package Reader(in InputStream) from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic nextFrame(handler Handler) : boolean from class com.squareup.okhttp.internal.spdy.SpdyReader to public nextFrame(handler Handler) : boolean from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSynStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSynStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSynReply(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSynReply(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readRstStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readRstStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readHeaders(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readHeaders(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readWindowUpdate(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readWindowUpdate(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate newNameValueBlockStream() : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to private newNameValueBlockStream() : DataInputStream from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.SpdyReader to private readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readString() : String from class com.squareup.okhttp.internal.spdy.SpdyReader to private readString() : String from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readPing(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readPing(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readGoAway(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readGoAway(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSettings(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSettings(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate ioException(message String, args Object[]) : IOException from class com.squareup.okhttp.internal.spdy.SpdyReader to private ioException(message String, args Object[]) : IOException from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic close() : void from class com.squareup.okhttp.internal.spdy.SpdyReader to public close() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpackage SpdyWriter(out OutputStream) from class com.squareup.okhttp.internal.spdy.SpdyWriter to package Writer(out OutputStream) from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic synStream(flags int, streamId int, associatedStreamId int, priority int, slot int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public synStream(flags int, streamId int, associatedStreamId int, priority int, slot int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic synReply(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public synReply(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic headers(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public headers(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic rstStream(streamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public rstStream(streamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic data(flags int, streamId int, data byte[]) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public data(flags int, streamId int, data byte[]) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate writeNameValueBlockToBuffer(nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to private writeNameValueBlockToBuffer(nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic settings(flags int, settings Settings) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public settings(flags int, settings Settings) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic noop() : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public noop() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic ping(flags int, id int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public ping(flags int, id int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic goAway(flags int, lastGoodStreamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public goAway(flags int, lastGoodStreamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic windowUpdate(streamId int, deltaWindowSize int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public windowUpdate(streamId int, deltaWindowSize int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic close() : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public close() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  } ]
+}, {
+  "project" : {
+    "name" : "okhttp",
+    "url" : "https://github.com/square/okhttp",
+    "path" : "file:///Users/dontbr/ufpe/repositories/tmp/227822e5-5751-4d92-a1ee-9ba51dc2ff7f/",
+    "tags" : [ "1.3.0", "parent-1.0.0", "parent-1.0.1", "parent-1.0.2", "parent-1.1.0", "parent-1.1.1", "parent-1.2.0", "parent-1.2.1", "parent-1.5.0", "parent-1.5.1", "parent-1.5.2", "parent-1.5.3", "parent-1.5.4", "parent-1.6.0", "parent-2.0.0", "parent-2.0.0-RC1", "parent-2.0.0-RC2", "parent-2.1.0", "parent-2.1.0-RC1", "parent-2.2.0", "parent-2.3.0", "parent-2.4.0", "parent-2.4.0-RC1", "parent-2.5.0", "parent-2.6.0", "parent-2.7.0", "parent-2.7.1", "parent-2.7.2", "parent-2.7.3", "parent-2.7.4", "parent-2.7.5", "parent-3.0.0", "parent-3.0.0-RC1", "parent-3.0.1", "parent-3.1.0", "parent-3.1.1", "parent-3.1.2", "parent-3.10.0", "parent-3.11.0", "parent-3.12.0", "parent-3.12.1", "parent-3.12.2", "parent-3.13.0", "parent-3.13.1", "parent-3.14.0", "parent-3.2.0", "parent-3.3.0", "parent-3.3.1", "parent-3.4.0", "parent-3.4.0-RC1", "parent-3.4.1", "parent-3.4.2", "parent-3.5.0", "parent-3.6.0", "parent-3.7.0", "parent-3.8.0", "parent-3.8.1", "parent-3.9.0", "parent-3.9.1" ],
+    "tagsWithErrors" : [ ],
+    "currentTag" : "parent-1.1.1",
+    "valid" : true,
+    "currentBranch" : null
+  },
+  "smell" : {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "smell" : "LongMethod",
+    "tool" : "SMARTSMELLS",
+    "tag" : "1.3.0",
+    "tagFixed" : "parent-1.0.0",
+    "line" : "117",
+    "column" : "5",
+    "refactoringList" : null
+  },
+  "smellList" : null,
+  "occurrenceList" : null,
+  "refactoringList" : [ {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tprivate nameValueBlockIn : DataInputStream from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tprivate compressedLimit : int from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Method",
+    "refactoringDetail" : "Move Method\tprivate readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to public readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Method",
+    "refactoringDetail" : "Move Method\tprivate readString() : String from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to private readString() : String from class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Parameterize Variable",
+    "refactoringDetail" : "Parameterize Variable\tlength : int to byteCount : int in method public data(outFinished boolean, streamId int, data byte[], offset int, byteCount int) : void in class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage FLAG_FIN : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage FLAG_UNIDIRECTIONAL : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_DATA : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SYN_STREAM : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SYN_REPLY : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_RST_STREAM : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SETTINGS : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_NOOP : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_PING : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_GOAWAY : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_HEADERS : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_WINDOW_UPDATE : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_CREDENTIAL : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage VERSION : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage DICTIONARY : byte[] from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate in : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockIn : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate compressedLimit : int from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate out : DataOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockBuffer : ByteArrayOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockOut : DataOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpackage SpdyReader(in InputStream) from class com.squareup.okhttp.internal.spdy.SpdyReader to package Reader(in InputStream) from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic nextFrame(handler Handler) : boolean from class com.squareup.okhttp.internal.spdy.SpdyReader to public nextFrame(handler Handler) : boolean from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSynStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSynStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSynReply(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSynReply(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readRstStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readRstStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readHeaders(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readHeaders(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readWindowUpdate(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readWindowUpdate(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate newNameValueBlockStream() : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to private newNameValueBlockStream() : DataInputStream from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.SpdyReader to private readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readString() : String from class com.squareup.okhttp.internal.spdy.SpdyReader to private readString() : String from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readPing(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readPing(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readGoAway(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readGoAway(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSettings(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSettings(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate ioException(message String, args Object[]) : IOException from class com.squareup.okhttp.internal.spdy.SpdyReader to private ioException(message String, args Object[]) : IOException from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic close() : void from class com.squareup.okhttp.internal.spdy.SpdyReader to public close() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpackage SpdyWriter(out OutputStream) from class com.squareup.okhttp.internal.spdy.SpdyWriter to package Writer(out OutputStream) from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic synStream(flags int, streamId int, associatedStreamId int, priority int, slot int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public synStream(flags int, streamId int, associatedStreamId int, priority int, slot int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic synReply(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public synReply(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic headers(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public headers(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic rstStream(streamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public rstStream(streamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic data(flags int, streamId int, data byte[]) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public data(flags int, streamId int, data byte[]) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate writeNameValueBlockToBuffer(nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to private writeNameValueBlockToBuffer(nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic settings(flags int, settings Settings) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public settings(flags int, settings Settings) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic noop() : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public noop() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic ping(flags int, id int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public ping(flags int, id int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic goAway(flags int, lastGoodStreamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public goAway(flags int, lastGoodStreamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic windowUpdate(streamId int, deltaWindowSize int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public windowUpdate(streamId int, deltaWindowSize int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic close() : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public close() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  } ]
+}, {
+  "project" : {
+    "name" : "okhttp",
+    "url" : "https://github.com/square/okhttp",
+    "path" : "file:///Users/dontbr/ufpe/repositories/tmp/227822e5-5751-4d92-a1ee-9ba51dc2ff7f/",
+    "tags" : [ "1.3.0", "parent-1.0.0", "parent-1.0.1", "parent-1.0.2", "parent-1.1.0", "parent-1.1.1", "parent-1.2.0", "parent-1.2.1", "parent-1.5.0", "parent-1.5.1", "parent-1.5.2", "parent-1.5.3", "parent-1.5.4", "parent-1.6.0", "parent-2.0.0", "parent-2.0.0-RC1", "parent-2.0.0-RC2", "parent-2.1.0", "parent-2.1.0-RC1", "parent-2.2.0", "parent-2.3.0", "parent-2.4.0", "parent-2.4.0-RC1", "parent-2.5.0", "parent-2.6.0", "parent-2.7.0", "parent-2.7.1", "parent-2.7.2", "parent-2.7.3", "parent-2.7.4", "parent-2.7.5", "parent-3.0.0", "parent-3.0.0-RC1", "parent-3.0.1", "parent-3.1.0", "parent-3.1.1", "parent-3.1.2", "parent-3.10.0", "parent-3.11.0", "parent-3.12.0", "parent-3.12.1", "parent-3.12.2", "parent-3.13.0", "parent-3.13.1", "parent-3.14.0", "parent-3.2.0", "parent-3.3.0", "parent-3.3.1", "parent-3.4.0", "parent-3.4.0-RC1", "parent-3.4.1", "parent-3.4.2", "parent-3.5.0", "parent-3.6.0", "parent-3.7.0", "parent-3.8.0", "parent-3.8.1", "parent-3.9.0", "parent-3.9.1" ],
+    "tagsWithErrors" : [ ],
+    "currentTag" : "parent-1.1.1",
+    "valid" : true,
+    "currentBranch" : null
+  },
+  "smell" : {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "smell" : "LongParameterList",
+    "tool" : "SMARTSMELLS",
+    "tag" : "1.3.0",
+    "tagFixed" : "parent-1.0.0",
+    "line" : "312",
+    "column" : "5",
+    "refactoringList" : null
+  },
+  "smellList" : null,
+  "occurrenceList" : null,
+  "refactoringList" : [ {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tprivate nameValueBlockIn : DataInputStream from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tprivate compressedLimit : int from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Method",
+    "refactoringDetail" : "Move Method\tprivate readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to public readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "98c9288d8eb14f7af93716aa50735d28c6aa91eb",
+    "refactoringType" : "Move Method",
+    "refactoringDetail" : "Move Method\tprivate readString() : String from class com.squareup.okhttp.internal.spdy.Spdy3.Reader to private readString() : String from class com.squareup.okhttp.internal.spdy.NameValueBlockReader",
+    "commitMessage" : "Handle name/value header blocks with trailing bytes.\n\nhttps://github.com/square/okhttp/issues/333\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Parameterize Variable",
+    "refactoringDetail" : "Parameterize Variable\tlength : int to byteCount : int in method public data(outFinished boolean, streamId int, data byte[], offset int, byteCount int) : void in class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage FLAG_FIN : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage FLAG_UNIDIRECTIONAL : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_DATA : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SYN_STREAM : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SYN_REPLY : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_RST_STREAM : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_SETTINGS : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_NOOP : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_PING : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_GOAWAY : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_HEADERS : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_WINDOW_UPDATE : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage TYPE_CREDENTIAL : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "39c0d7d56397ab14892db8032464cb8a9f983ff1",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage VERSION : int from class com.squareup.okhttp.internal.spdy.SpdyConnection to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Push stream flags into Spdy3.\n\nPreviously flags were being interpretted in SpdyConnection\nand SpdyStream. This won't work for HTTP/2.0, which has its\nown flag setup.\n\n",
+    "commitMessageMatch" : false
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Move Attribute",
+    "refactoringDetail" : "Move Attribute\tpackage DICTIONARY : byte[] from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate in : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockIn : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate compressedLimit : int from class com.squareup.okhttp.internal.spdy.SpdyReader to class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate out : DataOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockBuffer : ByteArrayOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Attribute",
+    "refactoringDetail" : "Push Down Attribute\tprivate nameValueBlockOut : DataOutputStream from class com.squareup.okhttp.internal.spdy.SpdyWriter to class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpackage SpdyReader(in InputStream) from class com.squareup.okhttp.internal.spdy.SpdyReader to package Reader(in InputStream) from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic nextFrame(handler Handler) : boolean from class com.squareup.okhttp.internal.spdy.SpdyReader to public nextFrame(handler Handler) : boolean from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSynStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSynStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSynReply(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSynReply(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readRstStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readRstStream(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readHeaders(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readHeaders(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readWindowUpdate(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readWindowUpdate(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate newNameValueBlockStream() : DataInputStream from class com.squareup.okhttp.internal.spdy.SpdyReader to private newNameValueBlockStream() : DataInputStream from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.SpdyReader to private readNameValueBlock(length int) : List<String> from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readString() : String from class com.squareup.okhttp.internal.spdy.SpdyReader to private readString() : String from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readPing(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readPing(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readGoAway(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readGoAway(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate readSettings(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.SpdyReader to private readSettings(handler Handler, flags int, length int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate ioException(message String, args Object[]) : IOException from class com.squareup.okhttp.internal.spdy.SpdyReader to private ioException(message String, args Object[]) : IOException from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic close() : void from class com.squareup.okhttp.internal.spdy.SpdyReader to public close() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Reader",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpackage SpdyWriter(out OutputStream) from class com.squareup.okhttp.internal.spdy.SpdyWriter to package Writer(out OutputStream) from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic synStream(flags int, streamId int, associatedStreamId int, priority int, slot int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public synStream(flags int, streamId int, associatedStreamId int, priority int, slot int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic synReply(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public synReply(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic headers(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public headers(flags int, streamId int, nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic rstStream(streamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public rstStream(streamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic data(flags int, streamId int, data byte[]) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public data(flags int, streamId int, data byte[]) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tprivate writeNameValueBlockToBuffer(nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to private writeNameValueBlockToBuffer(nameValueBlock List<String>) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic settings(flags int, settings Settings) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public settings(flags int, settings Settings) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic noop() : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public noop() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic ping(flags int, id int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public ping(flags int, id int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic goAway(flags int, lastGoodStreamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public goAway(flags int, lastGoodStreamId int, statusCode int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic windowUpdate(streamId int, deltaWindowSize int) : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public windowUpdate(streamId int, deltaWindowSize int) : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  }, {
+    "resource" : "com.squareup.okhttp.internal.spdy.Spdy3",
+    "project" : null,
+    "commit" : "21dc92f967d01c2da3ace57b7cc04421e2fd296b",
+    "refactoringType" : "Push Down Method",
+    "refactoringDetail" : "Push Down Method\tpublic close() : void from class com.squareup.okhttp.internal.spdy.SpdyWriter to public close() : void from class com.squareup.okhttp.internal.spdy.Spdy3.Writer",
+    "commitMessage" : "Support multiple variants of the SPDY protocol.\n\nThis behavior-free refactoring makes the first baby steps towards\nsupporting HTTP/2.0. It adds indirection on the framing layer so\nwe can frame either using SPDY/3's syntax or HTTP/2.0's.\n\n",
+    "commitMessageMatch" : true
+  } ]
+} ]
