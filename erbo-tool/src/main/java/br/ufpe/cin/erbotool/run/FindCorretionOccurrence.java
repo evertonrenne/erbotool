@@ -62,6 +62,7 @@ public class FindCorretionOccurrence implements FindOccurrence<CodeSmellEntity> 
 					boolean smellStillPresent = smellList.stream().filter(t -> t.getTag().equalsIgnoreCase(tag)).findFirst().isPresent();
 					if ( smellStillPresent == false ) {
 						smell.setTagFixed(tag);
+						smell.setTagBeforeFix(proj.getPreviously(tag));
 						retorno.add(smell);
 						
 						LOGGER.trace("Maybe a occurrence of refactoring...");

@@ -1,10 +1,8 @@
 package br.ufpe.cin.erbotool.main;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
@@ -15,6 +13,7 @@ import br.ufpe.cin.erbotool.entity.ProjectEntity;
 import br.ufpe.cin.erbotool.entity.RefactoringEntity;
 import br.ufpe.cin.erbotool.entity.ResultEntity;
 import br.ufpe.cin.erbotool.entity.TagIntervalEntity;
+import br.ufpe.cin.erbotool.exception.SmellException;
 import br.ufpe.cin.erbotool.git.GitWorker;
 import br.ufpe.cin.erbotool.run.RunDetectionTool;
 import br.ufpe.cin.erbotool.run.RunRefactoringTool;
@@ -26,6 +25,7 @@ public class ProjectThread extends Thread {
 	private static Logger LOGGER = LogManager.getLogger();
 
 	ProjectEntity proj;
+	List<CodeSmellEntity> resultMatchMessageList = new ArrayList<>();
 
 	public ProjectThread(ProjectEntity proj) {
 		this.proj = proj;
@@ -34,44 +34,43 @@ public class ProjectThread extends Thread {
 
 	@Override
 	public void run() {
-		Set<ResultEntity> resultMatchMessageList = new LinkedHashSet<ResultEntity>();
+		List<ResultEntity> resultList = new ArrayList<>();
 		
 		LOGGER.info("Runnning tool for " + proj.getName() + " ("+proj.getUrl()+")");
 		
 		try {
 			RunDetectionTool detectionTool = new RunDetectionTool(proj);
 			detectionTool.run();
-			// all smells of all tags
-			List<CodeSmellEntity> fullSmellList = detectionTool.getFullList();
-			
-			// collecting data about smells and tags
-			for(String tag : proj.getTags()) {
-				// get all smells introduced in this tag 
-				List<CodeSmellEntity> tagSmellIntroducedList = fullSmellList.stream().filter(s -> s.getTag().equalsIgnoreCase(tag)).collect(Collectors.toList());
-				LOGGER.trace("tagSmellIntroducedList.size()="+tagSmellIntroducedList.size());
-				// get all smells fixed (disappeared) in this tag
-				List<CodeSmellEntity> tagSmellFixedList = fullSmellList.stream().filter(s -> s.getTagFixed().equalsIgnoreCase(tag)).collect(Collectors.toList());
-				LOGGER.trace("tagSmellFixedList.size()="+tagSmellFixedList.size());
-				// get all tag's interval where smells were introduce and fixed
-				Set<TagIntervalEntity> tagIntervalList = new HashSet<>();
-				for(CodeSmellEntity smell : tagSmellIntroducedList) {
-					TagIntervalEntity tagInterval = new TagIntervalEntity();
-					tagInterval.setTag(smell.getTag());
-					tagInterval.setTagFixed(smell.getTagFixed());
-					tagInterval.getSmellList().add(smell);
-				}
-				LOGGER.trace("tagIntervalList.size()="+tagIntervalList.size());
-				
-			}
-			
-			
-			//
-			
 			RunRefactoringTool refactoringTool = new RunRefactoringTool(proj, detectionTool.getFullList());
 			refactoringTool.run();
 			
+			// cross refactorings detected by refactoringminer with code smells detected by smartsmell
+			List<CodeSmellEntity> occurrenceResultList = refactoringTool.getOccurrenceResultList(); // contains all smells that appear in some point (tag) and disappear in next tags
+			List<TagIntervalEntity> intervalList = refactoringTool.getIntervalList(); // contains all refactoring detected in all tag's interval that is in occurrenceResultList
+			
+			// step 1: cross smell resource (in occurrence) with refactoringlist to check if there is some refactorinng and if something was changed in that specific resource
+			for(CodeSmellEntity smell : occurrenceResultList) {
+				List<TagIntervalEntity> smellIntervalList = intervalList.stream().filter(i -> i.getSmellList().contains(smell)).collect(Collectors.toList());
+				for(TagIntervalEntity interval : smellIntervalList) {					
+					if (interval.getRefactoringList().stream().anyMatch(r -> r.getRefactoringDetail().toLowerCase().contains(smell.getResource().toLowerCase()))) {
+						List<RefactoringEntity> refactoringList = interval.getRefactoringList().stream().filter(r -> r.getRefactoringDetail().toLowerCase().contains(smell.getResource().toLowerCase())).collect(Collectors.toList());
+						LOGGER.info("Found " + refactoringList.size() + " refactorings that MATCH with resource " + smell.getResource() + " in tag's interval " + interval.getTagBeforeFix() + "-" + interval.getTagFixed());
+						smell.setRefactoringList(refactoringList);
+						searchRefactoringInCommitLog(smell);
+						//
+						refactoringList = refactoringList.stream().filter(r -> r.isCommitMessageMatch()).collect(Collectors.toList());
+						smell.setRefactoringList(refactoringList);
+					}
+				}
+			}
+			
+			// step 2: if step 1 found something, we'll retrieve commit messages (log) and search for keywords that refer to something related with refactoring or code smell
+			
+			// step 3: persist all finds
+			
+			/*
 			// retrieve commit messages
-			List<ResultEntity> resultList = refactoringTool.getResultList();
+			resultList = refactoringTool.getResultList();
 			String[] refactoringWords = {"refactor", "smell", "improve", "performance", "evolve", "evolution", 
 					"dataclass", "data class", 
 					"featureenvy", "feature envy", 
@@ -105,7 +104,7 @@ public class ProjectThread extends Thread {
 						}
 					}					
 				}				
-			}
+			}*/
 		} catch (Exception e) {
 			LOGGER.error("ERROR: " + e.getMessage(), e);
 		} finally {
@@ -119,5 +118,42 @@ public class ProjectThread extends Thread {
 			}
 		}		
 		Main.delProj(proj, resultMatchMessageList);
+	}
+	
+	private void searchRefactoringInCommitLog(CodeSmellEntity smell) throws SmellException {
+		String[] refactoringWords = {"refactor", "smell", "improve", "performance", "evolve", "evolution", 
+				"dataclass", "data class", 
+				"featureenvy", "feature envy", 
+				"largeclass", "large class", 
+				"longmethod", "long method", 
+				"longparameterlist", "long parameter", 
+				"messagechain", "message chain", 
+				"middleman", "middle man", 
+				"refusedparentbequest", "refused parent bequest", 
+				"shotgunsurgery", "shotgun surgery"
+		};
+		GitWorker git = new GitWorker();
+		
+		for(RefactoringEntity refactoring : smell.getRefactoringList()) {
+			String message = git.log(proj, refactoring.getCommit());
+			refactoring.setCommitMessage(message);
+			// filter by keywords
+			for(String word : refactoringWords) {
+				if ( message.contains(word) ) {
+					refactoring.setCommitMessageMatch(true);
+					smell.setProject(proj);
+					refactoring.setProject(proj);
+					resultMatchMessageList.add(smell);
+					
+					LOGGER.info("FOUND A MATCH!!! "+ proj.getName() + " ("+proj.getUrl()+")"
+							+ " commit: " + refactoring.getCommit() 
+							+ " word: " + word 
+							+ " refactoring: " + refactoring.getRefactoringType() 
+							+ " detail: " + refactoring.getRefactoringDetail() 
+							+ " smell: " + smell.getSmell());
+					break;
+				}
+			}					
+		}				
 	}
 }

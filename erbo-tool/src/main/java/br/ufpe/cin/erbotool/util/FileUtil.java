@@ -1,5 +1,6 @@
 package br.ufpe.cin.erbotool.util;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,6 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,6 +24,36 @@ import br.ufpe.cin.erbotool.entity.ProjectEntity;
 public class FileUtil {
 
 	private final static Logger LOGGER = LogManager.getLogger();
+	
+	public static void persistCsv(Map<String, String[]> mapRefactorings, String resultFilename) {		
+		String FIELD_DELIMITER = ";";
+		Path path = Paths.get(resultFilename);
+		try (BufferedWriter writer = Files.newBufferedWriter(path))
+		{
+			// header
+			writer.write(
+					"tag" + FIELD_DELIMITER + 
+					"tagBeforeFix" + FIELD_DELIMITER + 
+					"tagFixed" + FIELD_DELIMITER + 
+					"commitMessage" + FIELD_DELIMITER + 
+					"qtyRefactorings" + 
+					System.getProperty("line.separator")); 
+			for(Entry<String, String[]> entry : mapRefactorings.entrySet()) {
+				// {"tag", "tagBeforeFix", "tagFixed", "commitMessage", "qtyRefactorings"}
+				String[] value = entry.getValue(); 
+				writer.write(
+						entry.getKey() + FIELD_DELIMITER +
+						value[0] + FIELD_DELIMITER +
+						value[1] + FIELD_DELIMITER +
+						value[2] + FIELD_DELIMITER +
+						value[3] + FIELD_DELIMITER +
+						value[4] + FIELD_DELIMITER + 
+						System.getProperty("line.separator"));
+			}
+		} catch (IOException e) {
+			LOGGER.error(e.getMessage(), e);
+		}
+	}
 	
 	public static void persistJson(Object result, String resultFilename) {
 		try {

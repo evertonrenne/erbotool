@@ -10,8 +10,8 @@ import org.apache.logging.log4j.Logger;
 import br.ufpe.cin.erbotool.entity.CodeSmellEntity;
 import br.ufpe.cin.erbotool.entity.ProjectEntity;
 import br.ufpe.cin.erbotool.entity.RefactoringEntity;
+import br.ufpe.cin.erbotool.entity.TagIntervalEntity;
 import br.ufpe.cin.erbotool.util.FileUtil;
-import br.ufpe.cin.erbotool.util.enums.SmellToolEnum;
 
 public class RefactoringMinerCsvParse implements RefactoringParse {
 
@@ -45,5 +45,30 @@ public class RefactoringMinerCsvParse implements RefactoringParse {
 		return refactoringList;
 	}
 
+	@Override
+	public List<RefactoringEntity> parse(String csvFilename, ProjectEntity projectEntity, TagIntervalEntity interval) throws IOException {
+		List<RefactoringEntity> refactoringList = new ArrayList<>();
+		List<String> csvList = FileUtil.readLines(csvFilename);
+		// tokenizer refactorings
+		for(int i=1; i<csvList.size(); i++) {
+			String line = csvList.get(i);
+			String[] tokens = line.split(REFACTORINGMINER_FIELD_SEPARATOR);
+			if ( tokens.length == 3 ) {
+				RefactoringEntity refactoring = new RefactoringEntity();
+				refactoring.setCommit(tokens[0]);
+				refactoring.setRefactoringType(tokens[1]);
+				refactoring.setRefactoringDetail(tokens[2]);
+				//refactoring.setProject(projectEntity);
+				refactoring.setResource(null);
+				
+				// add
+				refactoringList.add(refactoring);
+			}
+		}
+		
+		LOGGER.trace("Found " + refactoringList.size() + " possible refactorings in project " + projectEntity.getName() + " between tags " + interval.getTagBeforeFix() + " and " + interval.getTagFixed());
+		
+		return refactoringList;
+	}
 	
 }

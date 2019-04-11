@@ -13,6 +13,7 @@ public class CodeSmellEntity extends AbstractCodeEntity {
 	private String smell;
 	private SmellToolEnum tool;	
 	private String tag;
+	private String tagBeforeFix;
 	private String tagFixed;
 	private String line="0";
 	private String column="0";

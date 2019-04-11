@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import br.ufpe.cin.erbotool.entity.CodeSmellEntity;
 import br.ufpe.cin.erbotool.entity.ProjectEntity;
+import br.ufpe.cin.erbotool.entity.TagIntervalEntity;
 import br.ufpe.cin.erbotool.exception.SmellException;
 import br.ufpe.cin.erbotool.util.ProcessUtil;
 import br.ufpe.cin.erbotool.util.PropertiesUtil;
@@ -67,6 +68,41 @@ public class RefactoringMiner implements RefactoringTool {
 		} catch (InterruptedException e) {
 			LOGGER.error(e.getMessage(), e);
 		}*/
+		
+		List<String> outputList = ProcessUtil.executeList(cmdArray);
+		if ( outputList.size() >= 2 ) {
+			String penultimateLine = outputList.get(outputList.size()-2);
+			consoleOutput = penultimateLine.replace("Finish mining, result is saved to file: ", "").trim();
+		} else {
+			throw new SmellException("something goes wrong with execution: " + Arrays.toString(cmdArray)); 
+		}
+		
+		return consoleOutput;
+	}
+	
+	@Override
+	public String execute(TagIntervalEntity interval, ProjectEntity proj, boolean invertTags) throws IOException, SmellException {
+		String consoleOutput = "";
+		String mainDIR = PropertiesUtil.getMainDir();
+		String refactoringMinerBin = PropertiesUtil.getRefactoringMinerBin();
+		String refactoringMinerParameters = PropertiesUtil.getRefactoringMinerParameters();
+		String parameters[] = refactoringMinerParameters.split(" ");		
+		parameters[1] = proj.getPath().toAbsolutePath().toString();
+		if ( invertTags ) {
+			parameters[3] = interval.getTagBeforeFix();
+			parameters[2] = interval.getTagFixed();
+		} else {
+			parameters[2] = interval.getTagBeforeFix();
+			parameters[3] = interval.getTagFixed();
+		}
+		String[] cmdArray = new String[5];
+		cmdArray[0] = mainDIR + File.separator + refactoringMinerBin;
+		cmdArray[1] = parameters[0];
+		cmdArray[2] = parameters[1];
+		cmdArray[3] = parameters[2];
+		cmdArray[4] = parameters[3];
+		
+		LOGGER.trace("Running: " + Arrays.toString(cmdArray));
 		
 		List<String> outputList = ProcessUtil.executeList(cmdArray);
 		if ( outputList.size() >= 2 ) {
