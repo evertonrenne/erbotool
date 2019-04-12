@@ -5,10 +5,10 @@
             <PatternLayout
               pattern="%d [%t] %-5level %logger{36}.%M - %msg%n%throwable"/>
         </Console>
-        <File name="MyFile" fileName="all.log" immediateFlush="false" append="false">
+        <File name="MyFile" fileName="logs/application.log" immediateFlush="false" append="false">
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
-        <RollingFile name="rollingFile" fileName="logs/application.log" filePattern="logs/application.%i.log" ignoreExceptions="false">
+        <RollingFile name="rollingFile" fileName="logs/erbo-tool.log" filePattern="logs/erbo-tool.%i.log" ignoreExceptions="false">
 			<PatternLayout>
 				<Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
 			</PatternLayout>
@@ -22,6 +22,7 @@
         <Root level="TRACE">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="MyFile"/>
+            <AppenderRef ref="rollingFile"/>
         </Root>
     </Loggers>
 </Configuration>
